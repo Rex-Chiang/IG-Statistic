@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} INSTAGRAM STATISTIC {% endblock %}
+{% block content %}
+<div class='container'>
+{% if message %}
+    <div class='alert alert-warning'>{{ message }}</div>
+{% endif %}
+<form name='my form' action='.' method='POST'>
+{% csrf_token %}
+    <br/>
+    : )<br/><br/>
+    <label for='account'>輸入預統計Instagram帳號</label>
+    <input id='account' type='text' name='account'>
+    <input type='submit' value='submit'>
+    <input type='reset' value='reset'>
+</form>
+</div>
+{% endblock %}

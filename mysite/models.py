@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Article(models.Model):
@@ -7,6 +8,7 @@ class Article(models.Model):
     followers = models.IntegerField(default = 0)
     followered = models.IntegerField(default = 0)
     articles = models.IntegerField(default = 0)
+    pub_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.account

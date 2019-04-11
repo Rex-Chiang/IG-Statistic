@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} INSTAGRAM STATISTIC {% endblock %}
+{% block content %}
+<div class='container' align=center>
+    <div class='row'>
+    {% for a in article %}
+        <div class='col-sm-12 col-md-6'>
+            <div class='panel {% cycle "panel-primary" "panel-info" "panel-warning" "panel-success" %}'>
+                <div class='panel-heading'>
+                    <table width='100%'>
+                        <tr>
+                            <td>
+                                [{{ a.account }}]
+                            </td>
+                            <td align=right>
+                                <i><small>{{ a.pub_time }}</small></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class='panel-body'>{{ pro | linebreaks }}</div>
+             </div>
+         </div>
+       {% endfor %}
+    </div>
+</div>
+{% endblock %}
