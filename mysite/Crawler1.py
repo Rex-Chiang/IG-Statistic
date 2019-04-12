@@ -1,8 +1,10 @@
-import requests
+import os
 import re
+import requests
 import numpy as np
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup as soup
+from urllib.request import urlretrieve
 
 class Crawler1:
     def __init__(self, url):        
@@ -47,7 +49,7 @@ class Crawler1:
         
         return pro, like, comment
 
-    def Plot(self, like, comment):
+    def Plot(self, like, comment, account):
         #LIKES, COMMS = zip(*info.keys())
         x = np.arange(1, len(like.values())+1, 1)
         plt.plot(x, like.values(), "bo-", lw = 1, ms = 5, alpha=0.7, mfc='orange', label= "LIKES")
@@ -56,14 +58,18 @@ class Crawler1:
         plt.ylabel("COUNTS")
         plt.xlim((1, len(like.values())))
         plt.legend()
-        plt.show()
+        plt.savefig("/home/rex/桌面/IG-project/IGstatistic/mysite/static/likes/"+account)
+        plt.close()
+        #plt.show()
         plt.plot(x, comment.values(), "ro-", lw = 1, ms = 5, alpha=0.7, mfc='orange', label= "COMMENTS")
         plt.grid(color='g',linestyle='--', linewidth=1,alpha=0.4)
         plt.xlabel("ARTICLES")
         plt.ylabel("COUNTS")
         plt.xlim((1, len(like.values())))
         plt.legend()
-        plt.show()
+        plt.savefig("/home/rex/桌面/IG-project/IGstatistic/mysite/static/comments/"+account)
+        plt.close()
+        #plt.show()
 
     def Statistic(self, like, comment):
         TransLike = {v : k for k, v in like.items()}
@@ -76,11 +82,15 @@ class Crawler1:
         
         return Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts
     
-    def Run(self):
+    def Run(self, account="ID"):
         pro, like, comment = self.ProInfo(self.script)
-        self.Plot(like, comment)
+        self.Plot(like, comment, account)
+        Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts = self.Statistic(like, comment)
         
-        return pro, like, comment
+        img_path = os.path.join("/home/rex/桌面/IG-project/IGstatistic/mysite/static/pro/"+account)
+        urlretrieve(pro, img_path)
+        
+        return like[Most_Liked_Posts], comment[Most_Commented_Posts]
 
 if __name__ == '__main__':
     
@@ -89,5 +99,5 @@ if __name__ == '__main__':
     
     Crawler = Crawler1(url)
     followers, followed, article = Crawler.RE(Crawler.script)
-    pro, like, comment = Crawler.Run()
-    Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts = Crawler.Statistic(like, comment)
+    Most_Liked_Posts, Most_Commented_Posts = Crawler.Run()
+    #Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts = Crawler.Statistic(like, comment)

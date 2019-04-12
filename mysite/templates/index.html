@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block title %} INSTAGRAM STATISTIC {% endblock %}
 {% block content %}
-<div class='container' align=center>
+{% load static %}
+
+<div class='container' align=left>
     <div class='row'>
     {% for a in article %}
-        <div class='col-sm-12 col-md-6'>
+        <div class='col-sm-12 col-md-9'>
             <div class='panel {% cycle "panel-primary" "panel-info" "panel-warning" "panel-success" %}'>
                 <div class='panel-heading'>
                     <table width='100%'>
@@ -18,7 +20,16 @@
                         </tr>
                     </table>
                 </div>
-                <div class='panel-body'>{{ pro | linebreaks }}</div>
+                <div class='panel-body'><img src="{% static "/pro/" %}{{a.account}}" style="float:left; margin-right:5px;" width=200>
+                    {{"Followers: "}}{{ a.followers }}</i><br/>
+                    <i>{{"Following: "}}{{ a.following }}</i><br/>
+                    <i>{{"Posts: "}}{{ a.articles }}</i><br/>
+                    <i>{{"Most liked posts: "}}{{ a.Most_Liked_Posts }}</i><br/>
+                    <i>{{"Most commented posts: "}}{{ a.Most_Commented_Posts }}</i><br/><br/><br/><br/>
+                    <hr>
+                    <img src="{% static "/likes/" %}{{a.account}}{{".png"}}" width=400>
+                    <img src="{% static "/comments/" %}{{a.account}}{{".png"}}" width=400>
+                </div>
              </div>
          </div>
        {% endfor %}

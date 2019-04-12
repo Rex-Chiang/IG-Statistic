@@ -4,10 +4,11 @@ from django.utils import timezone
 # Create your models here.
 class Article(models.Model):
     account = models.CharField(max_length = 20)
-    pro = models.URLField(max_length = 300)
     followers = models.IntegerField(default = 0)
-    followered = models.IntegerField(default = 0)
+    following = models.IntegerField(default = 0)
     articles = models.IntegerField(default = 0)
+    Most_Liked_Posts = models.IntegerField(default = 0)
+    Most_Commented_Posts = models.IntegerField(default = 0)
     pub_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
