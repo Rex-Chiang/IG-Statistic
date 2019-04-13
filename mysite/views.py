@@ -26,13 +26,16 @@ def posting(request):
         account = account.replace(".","_")
 
         if int(article) <= 12:
-            Most_Liked_Posts, Most_Commented_Posts = crawler1.Run(account)
+            Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts = crawler1.Run(account)
         
         else:
-            Most_Liked_Posts, Most_Commented_Posts = crawler2.Run(account)
+            Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts = crawler2.Run(account)
         
         
-        post = models.Article.objects.create(account=account, followers=followers, following=following, articles=article, Most_Liked_Posts=Most_Liked_Posts, Most_Commented_Posts=Most_Commented_Posts)
+        post = models.Article.objects.create(account=account, followers=followers, 
+                                             following=following, articles=article, 
+                                             Most_Liked_Posts=Most_Liked_Posts, Most_Commented_Posts=Most_Commented_Posts,
+                                             Least_Liked_Posts=Least_Liked_Posts, Least_Commented_Posts=Least_Commented_Posts)
         post.save()
-        message = '查詢成功'
+        message = '統計成功 !! 請至主畫面觀看結果'
     return render(request, 'posting.html', locals())

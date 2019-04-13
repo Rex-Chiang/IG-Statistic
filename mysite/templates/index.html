@@ -20,15 +20,29 @@
                         </tr>
                     </table>
                 </div>
-                <div class='panel-body'><img src="{% static "/pro/" %}{{a.account}}" style="float:left; margin-right:5px;" width=200>
+                <div class='panel-body'><img src="{% static "/pro/" %}{{a.account}}" title="Personal Photo" style="float:left; margin-right:5px;" width=200>
                     {{"Followers: "}}{{ a.followers }}</i><br/>
                     <i>{{"Following: "}}{{ a.following }}</i><br/>
                     <i>{{"Posts: "}}{{ a.articles }}</i><br/>
                     <i>{{"Most liked posts: "}}{{ a.Most_Liked_Posts }}</i><br/>
-                    <i>{{"Most commented posts: "}}{{ a.Most_Commented_Posts }}</i><br/><br/><br/><br/>
+                    <i>{{"Most commented posts: "}}{{ a.Most_Commented_Posts }}</i><br/>
+                    <i>{{"Least liked posts: "}}{{ a.Least_Liked_Posts }}</i><br/>
+                    <i>{{"Least commented posts: "}}{{ a.Least_Commented_Posts }}</i><br/><br/>
                     <hr>
-                    <img src="{% static "/likes/" %}{{a.account}}{{".png"}}" width=400>
-                    <img src="{% static "/comments/" %}{{a.account}}{{".png"}}" width=400>
+                    <i>{{"Likes curve: "}}</i>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Comments curve: "}}</i><br/>
+                    <img src="{% static "/likes/" %}{{a.account}}{{".png"}}" title="Likes curve" width=400>
+                    <img src="{% static "/comments/" %}{{a.account}}{{".png"}}" title="Comments curve" width=400><br/><br/>
+                    <i>{{"Most liked article: "}}</i>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Most commented article: "}}</i><br/>
+                    <br/>
+                    <img src="{% static "/mostlike/" %}{{a.account}}" title="Most liked article" width=400>
+                    <img src="{% static "/mostcomment/" %}{{a.account}}" title="Most commented article" width=400><br/><br/>
+                    <i>{{"Least liked article: "}}</i>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Least commented article: "}}</i><br/>
+                    <br/>
+                    <img src="{% static "/leastlike/" %}{{a.account}}" title="Least liked article" width=400>
+                    <img src="{% static "/leastcomment/" %}{{a.account}}" title="Least liked article" width=400>
                 </div>
              </div>
          </div>

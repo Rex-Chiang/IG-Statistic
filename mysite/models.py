@@ -9,6 +9,8 @@ class Article(models.Model):
     articles = models.IntegerField(default = 0)
     Most_Liked_Posts = models.IntegerField(default = 0)
     Most_Commented_Posts = models.IntegerField(default = 0)
+    Least_Liked_Posts = models.IntegerField(default = 0)
+    Least_Commented_Posts = models.IntegerField(default = 0)
     pub_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
