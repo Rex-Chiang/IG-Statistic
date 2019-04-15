@@ -3,10 +3,10 @@
 {% block content %}
 {% load static %}
 
-<div class='container' align=left>
+<div class='container-fluid' align=left>
     <div class='row'>
     {% for a in article %}
-        <div class='col-sm-12 col-md-9'>
+        <div class='col-sm-12 col-md-6'>
             <div class='panel {% cycle "panel-primary" "panel-info" "panel-warning" "panel-success" %}'>
                 <div class='panel-heading'>
                     <table width='100%'>
@@ -21,13 +21,13 @@
                     </table>
                 </div>
                 <div class='panel-body'><img src="{% static "/pro/" %}{{a.account}}" title="Personal Photo" style="float:left; margin-right:5px;" width=200>
-                    {{"Followers: "}}{{ a.followers }}</i><br/>
-                    <i>{{"Following: "}}{{ a.following }}</i><br/>
-                    <i>{{"Posts: "}}{{ a.articles }}</i><br/>
-                    <i>{{"Most liked posts: "}}{{ a.Most_Liked_Posts }}</i><br/>
-                    <i>{{"Most commented posts: "}}{{ a.Most_Commented_Posts }}</i><br/>
-                    <i>{{"Least liked posts: "}}{{ a.Least_Liked_Posts }}</i><br/>
-                    <i>{{"Least commented posts: "}}{{ a.Least_Commented_Posts }}</i><br/><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Followers: "}}{{ a.followers }}</i><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Following: "}}{{ a.following }}</i><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Posts: "}}{{ a.articles }}</i><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Most liked posts: "}}{{ a.Most_Liked_Posts }}</i><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Most commented posts: "}}{{ a.Most_Commented_Posts }}</i><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Least liked posts: "}}{{ a.Least_Liked_Posts }}</i><br/>
+                    <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Least commented posts: "}}{{ a.Least_Commented_Posts }}</i><br/><br/>
                     <hr>
                     <i>{{"Likes curve: "}}</i>
                     <i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{"Comments curve: "}}</i><br/>

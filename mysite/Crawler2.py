@@ -56,7 +56,10 @@ class Crawler2:
         # 12篇後的文章內容
         # 取得文章圖片網址、愛心數
         getpic = page.find_all('div',{'class':'KL4Bh'})[i].find('img',{'class':'FFVAD'})["src"]
-        getlike = page.find('div',{'class':'Nm9Fw'}).find('span').text.replace(",","")
+        if page.find('div',{'class':'Nm9Fw'}):
+            getlike = page.find('div',{'class':'Nm9Fw'}).find('span').text.replace(",","")
+        else:
+            getlike = 45
         # 取得留言數，留言數小於等於4者html本身不顯示因此設定為0
         if page.find('li',{'class':'lnrre'}):
             getcomment = page.find('li',{'class':'lnrre'}).find('span').text.replace(",","")
@@ -117,21 +120,24 @@ class Crawler2:
         driver.find_element_by_xpath("//div/a/div[@class='eLAPa']").click() # 點擊第一篇文章
         time.sleep(1)
         
-        for i in range(0, 34):      
-            NextPage = soup(driver.page_source,'html.parser') # 解析html
-            # 取得前12篇的文章內容
-            if i < 12:
-                getpic, getlike, getcomment = self.PicInfoBEF(NextPage, i)
-                like[getpic] = getlike
-                comment[getpic] = getcomment
-            # 取得12篇後的文章內容
-            else:
-                getpic, getlike, getcomment = self.PicInfoAFT(NextPage, i) 
-                like[getpic] = getlike
-                comment[getpic] = getcomment
-                
-            driver.find_element_by_xpath("//div/a[@class='HBoOv coreSpriteRightPaginationArrow']").click() # 點擊下一篇文章
-            time.sleep(1)
+        for i in range(0, 34):
+            try:
+                NextPage = soup(driver.page_source,'html.parser') # 解析html
+                # 取得前12篇的文章內容
+                if i < 12:
+                    getpic, getlike, getcomment = self.PicInfoBEF(NextPage, i)
+                    like[getpic] = getlike
+                    comment[getpic] = getcomment
+                # 取得12篇後的文章內容
+                else:
+                    getpic, getlike, getcomment = self.PicInfoAFT(NextPage, i) 
+                    like[getpic] = getlike
+                    comment[getpic] = getcomment
+                    
+                driver.find_element_by_xpath("//div/a[@class='HBoOv coreSpriteRightPaginationArrow']").click() # 點擊下一篇文章
+                time.sleep(1)
+            except:
+                print("ERROR")
         
         driver.quit()
         Most_Liked_Posts, Most_Commented_Posts, Least_Liked_Posts, Least_Commented_Posts = self.Statistic(like, comment)
