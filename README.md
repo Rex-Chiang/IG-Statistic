@@ -1,6 +1,7 @@
 # Instagram Statistic
 
 **簡介**
+
 透過用戶在網站中輸入Instagram帳號，
 以網路爬蟲擷取該Instagram帳號的相關資訊， 
 統計出該Instagram帳號的文章人氣變化及對應圖片，  
