@@ -19,4 +19,4 @@
  * Bootstrap
  
  **成果:**
- ![avatar](/home/rex/桌面/IG-project/Result/1.png)
+<img src="/home/rex/桌面/IG-project/Result/1.png" width="200px" /> 
