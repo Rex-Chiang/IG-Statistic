@@ -19,4 +19,4 @@
  * Bootstrap
  
  **成果:**
-![image](https://github.com/Rex-Chiang/IGstatistic/blob/master/1.png)
+![image](https://github.com/Rex-Chiang/IGstatistic/blob/master/Webp.net-gifmaker.gif)
