@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('post/', views.posting),
-    re_path(r'^captcha/', include('captcha.urls')),
+    #re_path(r'^captcha/', include('captcha.url')),
 ]
