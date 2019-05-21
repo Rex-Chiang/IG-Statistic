@@ -13,8 +13,7 @@
 統計出該Instagram帳號文章人氣的變化以及文章對應的圖片， 
 
 顯示出文章人氣的波動及最高人氣、最高留言、最低人氣、最低留言的文章。
- 
- 
+<br/>
 **相關技術及工具:**
  * Python
  * Django 
@@ -22,8 +21,7 @@
  * Selenium 
  * Google reCAPTCHA API 
  * Bootstrap
- 
- 
+<br/>
  **成果:**
 
 ![Result](https://github.com/Rex-Chiang/IGstatistic/blob/master/Result.gif)
