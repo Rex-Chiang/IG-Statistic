@@ -17,10 +17,15 @@
 **Introduction:**
 
 User can enter the Instagram account on the website.
+
 Concatenate the Google reCAPTCHA API to authenticate users.
+
 Use the web crawler to get information about the Instagram account.
+
 Including the number of fans, followers, articles, etc. of the Instagram account.
+
 Statisticize the popularity of the Instagram account's articles and corresponding image.
+
 Show the highest popularity article, most comments article, lowest popularity article, and least comments article.
 
 **相關技術及工具:**
